@@ -1,0 +1,44 @@
+/* Custom CSS for ZeroWaste */
+
+/* Body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0fdf4; /* Tailwind bg-green-50 */
+  color: #374151; /* Tailwind text-gray-800 */
+}
+
+/* Header */
+header {
+  background-color: #16a34a; /* Tailwind bg-green-600 */
+  color: white;
+  padding: 1rem;
+}
+
+header a {
+  color: white;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+/* Food listing cards */
+#foodListings .bg-white {
+  border: 1px solid #d1fae5; /* Tailwind border-green-100 */
+}
+
+button {
+  background-color: #16a34a; /* Tailwind bg-green-600 */
+  color: white;
+}
+
+button:hover {
+  background-color: #15803d; /* Tailwind hover:bg-green-700 */
+}
+
+/* Footer */
+footer {
+  background-color: #16a34a; /* Tailwind bg-green-600 */
+  padding: 2rem 0;
+  text-align: center;
+}

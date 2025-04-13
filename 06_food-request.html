@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Food Request Form</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Food Request Form</h1>
+        <p>Request food for your organization, shelter, or as an individual in need.</p>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-container">
+        <form id="foodRequestForm" action="/submit-request" method="POST">
+            <label for="recipientName">Name of Recipient or Organization:</label>
+            <input type="text" id="recipientName" name="recipientName" required>
+
+            <label for="contactInfo">Contact Information (Email/Phone):</label>
+            <input type="text" id="contactInfo" name="contactInfo" required>
+
+            <label for="location">Location (Auto-detect or Manual):</label>
+            <input type="text" id="location" name="location" placeholder="Enter or select location" required>
+
+            <label for="foodType">Type of Food Required:</label>
+            <input type="text" id="foodType" name="foodType" required>
+
+            <label for="quantityNeeded">Quantity Needed (in kg):</label>
+            <input type="number" id="quantityNeeded" name="quantityNeeded" required>
+
+            <label for="pickupTime">Preferred Pickup Time:</label>
+            <input type="datetime-local" id="pickupTime" name="pickupTime" required>
+
+            <label for="remarks">Remarks (optional):</label>
+            <textarea id="remarks" name="remarks" rows="4" placeholder="For example: for a shelter or specific dietary requirements"></textarea>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 ZeroWaste. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
