@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  backend-tests:
+    name: Backend tests (integration)
+    runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:5.0
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.adminCommand({ ping: 1 })'" --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      MONGODB_URI: mongodb://localhost:27017/zerowaste_test
+      JWT_SECRET: test_jwt_secret
+      JWT_REFRESH_SECRET: test_refresh_secret
+      NODE_ENV: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Wait for MongoDB to be ready
+        run: |
+          for i in {1..30}; do nc -z localhost 27017 && break; sleep 1; done
+
+      - name: Run backend tests
+        working-directory: backend
+        run: npm test
+
+  frontend-tests:
+    name: Frontend tests
+    runs-on: ubuntu-latest
+    needs: backend-tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run frontend tests
+        working-directory: frontend
+        env:
+          CI: true
+        run: npm test -- --watchAll=false
