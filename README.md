@@ -1,5 +1,6 @@
 # ZeroWaste
 <<<<<<< HEAD
+<<<<<<< HEAD
 A web project to reduce food waste through donation and geo-intelligence.
 # ZeroWaste
 
@@ -10,11 +11,22 @@ This README gives a quick overview and the commands to get the project running l
 Quick links
 - Backend: `backend/`
 - Frontend: `frontend/`
+# ZeroWaste
+
+ZeroWaste is a food donation/rescue platform connecting donors (restaurants, bakeries, and individuals) with recipients (NGOs, shelters, and community groups). It helps reduce food waste by matching surplus donations with nearby receivers using geo-intelligence.
+
+This repository contains a Node/Express backend and a React frontend (Create React App + Material UI).
+
+Quick links
+- Backend: `backend/`
+- Frontend: `frontend/`
 
 Prerequisites
 - Node.js (16+ recommended)
 - npm (or yarn)
 - MongoDB (local or Atlas)
+
+Getting started
 
 1) Clone
 
@@ -53,13 +65,13 @@ npm start
 
 The frontend will open at http://localhost:3000 by default.
 
-4) Notes & next steps
+Notes & next steps
 - Use a secure JWT secret in production and never commit `.env` files.
 - Consider running the backend behind a reverse proxy and enabling HTTPS in production.
-- There are example seed data and Mongoose models in `backend/models`.
+- For production refresh-token storage, prefer httpOnly cookies instead of localStorage.
 
 Contributing
-- Please open issues or PRs. Add a short `CONTRIBUTING.md` if you intend to accept external contributions.
+- Please open issues or PRs. Consider adding a `CONTRIBUTING.md` if you intend to accept external contributions.
 
 License
 - This project is licensed under the MIT License - see the `LICENSE` file.
